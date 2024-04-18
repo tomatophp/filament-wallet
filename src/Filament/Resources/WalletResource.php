@@ -6,6 +6,7 @@ use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Get;
 use Filament\Forms\Set;
+use Filament\Notifications\Notification;
 use TomatoPHP\FilamentWallet\Filament\Resources\WalletResource\Pages;
 use TomatoPHP\FilamentWallet\Filament\Resources\WalletResource\RelationManagers;
 use TomatoPHP\FilamentWallet\Models\Wallet;
@@ -151,6 +152,11 @@ class WalletResource extends Resource
                         else {
                             $record->deposit($data['amount']);
                         }
+
+                        Notification::make()
+                            ->title('Wallet Charged')
+                            ->message('Wallet Charged Successfully')
+                            ->send();
                     }),
             ])
             ->bulkActions([

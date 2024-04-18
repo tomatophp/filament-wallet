@@ -6,6 +6,7 @@ use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Get;
 use Filament\Forms\Set;
+use Filament\Notifications\Notification;
 use Filament\Tables\Actions\Action;
 use Illuminate\Support\ServiceProvider;
 use TomatoPHP\FilamentAccounts\Facades\FilamentAccounts;
@@ -105,6 +106,11 @@ class FilamentWalletServiceProvider extends ServiceProvider
                     else {
                         $record->deposit($data['amount']);
                     }
+
+                    Notification::make()
+                        ->title('Wallet Charged')
+                        ->message('Wallet Charged Successfully')
+                        ->send();
                 }),
         ]);
     }
