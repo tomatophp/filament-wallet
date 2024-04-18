@@ -29,6 +29,12 @@ after install your package please run this command
 php artisan filament-wallet:install
 ```
 
+finally reigster the plugin on `/app/Providers/Filament/AdminPanelProvider.php`
+
+```php
+->plugin(\TomatoPHP\FilamentWallet\FilamentWalletPlugin::make())
+```
+
 ## Usage
 
 you need first publish Account Model using this command
