@@ -4,6 +4,9 @@ namespace TomatoPHP\FilamentWallet;
 
 use Filament\Contracts\Plugin;
 use Filament\Panel;
+use TomatoPHP\FilamentWallet\Filament\Resources\TransactionResource;
+use TomatoPHP\FilamentWallet\Filament\Resources\TransferResource;
+use TomatoPHP\FilamentWallet\Filament\Resources\WalletResource;
 
 class FilamentWalletPlugin implements Plugin
 {
@@ -16,7 +19,8 @@ class FilamentWalletPlugin implements Plugin
     {
         $panel
             ->resources([
-
+                TransactionResource::class,
+                WalletResource::class
             ]);
     }
 
