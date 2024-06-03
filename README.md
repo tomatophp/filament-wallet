@@ -1,4 +1,4 @@
-![Screenshot](https://github.com/tomatophp/filament-wallet/blob/master/arts/3x1io-tomato-wallet.jpg)
+![Screenshot](https://raw.githubusercontent.com/tomatophp/filament-wallet/master/arts/3x1io-tomato-wallet.jpg)
 
 # Filament Wallet
 
@@ -12,10 +12,10 @@ Account Balance / Wallets Manager For FilamentPHP and Filament Account Builder
 
 # Screenshots
 
-![Account Wallet](https://github.com/tomatophp/filament-wallet/blob/master/arts/account-wallet.png)
-![Charge A Wallet](https://github.com/tomatophp/filament-wallet/blob/master/arts/charge-wallet.png)
-![Wallets List](https://github.com/tomatophp/filament-wallet/blob/master/arts/wallet.png)
-![Transactions List](https://github.com/tomatophp/filament-wallet/blob/master/arts/transactions.png)
+![Account Wallet](https://raw.githubusercontent.com/tomatophp/filament-wallet/master/arts/account-wallet.png)
+![Charge A Wallet](https://raw.githubusercontent.com/tomatophp/filament-wallet/master/arts/charge-wallet.png)
+![Wallets List](https://raw.githubusercontent.com/tomatophp/filament-wallet/master/arts/wallet.png)
+![Transactions List](https://raw.githubusercontent.com/tomatophp/filament-wallet/master/arts/transactions.png)
 
 
 ## Installation
