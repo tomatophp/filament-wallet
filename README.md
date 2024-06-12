@@ -9,6 +9,7 @@
 
 Account Balance / Wallets Manager For FilamentPHP and Filament Account Builder
 
+you can get more detials about how to use this package in [Bavix Wallet](https://github.com/bavix/laravel-wallet)
 
 # Screenshots
 
@@ -37,10 +38,48 @@ finally reigster the plugin on `/app/Providers/Filament/AdminPanelProvider.php`
 
 ## Usage
 
-you need first publish Account Model using this command
+to add a wallet to your user model on your model add this trait
+
+```php
+
+namespace  App\Models;
+
+use Bavix\Wallet\Interfaces\Wallet;
+use Bavix\Wallet\Traits\HasWallet;
+
+class Account extends Model implements Wallet
+{
+    use HasWallet;
+}
+```
+
+now your model is has a wallet on your resource add this action to your table
+
+```php
+use TomatoPHP\FilamentWallet\Filament\Actions\WalletAction;
+
+public function table(Table $table): void
+{
+    $table->actions([
+        WalletAction::make('wallet'),
+    ]);
+}
+```
+
+now yo can charge the wallet of the user by clicking on the wallet action
+
+## Integration With Filament Accounts
+
+first you need to install Filament Account Builder
 
 ```bash
-php artisan vendor:publish --tag="filament-wallet-model"
+composer require tomatophp/filament-account
+```
+
+then you need to publish the model file
+
+```bash
+php artisan vendor:publish --tag="filament-accounts-model"
 ```
 
 then you can use this model in your project and attach this traits to your model
@@ -60,32 +99,10 @@ class Account extends Model implements Wallet
 
 now you accounts has a balance ready.
 
-you can get more detials about how to use this package in [Bavix Wallet](https://github.com/bavix/laravel-wallet)
+finally reigster the plugin on `/app/Providers/Filament/AdminPanelProvider.php`
 
-## Publish Assets
-
-you can publish config file by use this command
-
-```bash
-php artisan vendor:publish --tag="filament-wallet-config"
-```
-
-you can publish views file by use this command
-
-```bash
-php artisan vendor:publish --tag="filament-wallet-views"
-```
-
-you can publish languages file by use this command
-
-```bash
-php artisan vendor:publish --tag="filament-wallet-lang"
-```
-
-you can publish migrations file by use this command
-
-```bash
-php artisan vendor:publish --tag="filament-wallet-migrations"
+```php
+->plugin(\TomatoPHP\FilamentWallet\FilamentWalletPlugin::make()->useAccounts())
 ```
 
 ## Support
@@ -94,7 +111,7 @@ you can join our discord server to get support [TomatoPHP](https://discord.gg/Xq
 
 ## Docs
 
-you can check docs of this package on [Docs](https://docs.tomatophp.com/plugins/laravel-package-generator)
+you can check docs of this package on [Docs](https://docs.tomatophp.com/filament/filament-wallet)
 
 ## Changelog
 
