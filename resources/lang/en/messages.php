@@ -16,6 +16,9 @@ return [
             "confirmed" => "Confirmed",
             "uuid" => "UUID",
         ],
+        "filters" => [
+            "accounts" => "Filter By Accounts",
+        ]
     ],
     "wallets" => [
         "title" => "Wallets",
@@ -36,5 +39,8 @@ return [
             "type" => "Type",
             "amount" => "Amount",
         ],
+        "filters" => [
+            "accounts" => "Filter By Accounts",
+        ]
     ],
 ];

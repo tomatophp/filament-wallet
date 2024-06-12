@@ -16,6 +16,9 @@ return [
             "confirmed" => "تأكيد",
             "uuid" => "الكود",
         ],
+        "filters" => [
+            "accounts" => "تصفية حسب الحسابات",
+        ]
     ],
     "wallets" => [
         "title" => "المحافظ",
@@ -36,5 +39,8 @@ return [
             "type" => "النوع",
             "amount" => "المبلغ",
         ],
+        "filters" => [
+            "accounts" => "تصفية حسب الحسابات",
+        ]
     ],
 ];

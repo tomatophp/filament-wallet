@@ -118,7 +118,7 @@ class WalletResource extends Resource
             ])
             ->filters(filament('filament-wallet')->useAccounts ? [
                 Tables\Filters\SelectFilter::make('holder_id')
-                    ->label('Filter By Account')
+                    ->label(trans('filament-wallet::messages.wallets.filters.accounts'))
                     ->searchable()
                     ->options(fn () => config('filament-accounts.model')::query()->pluck('name', 'id')->toArray())
             ] : [])
