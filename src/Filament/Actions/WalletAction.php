@@ -61,7 +61,7 @@ class WalletAction extends Action
 
             Notification::make()
                 ->title(trans('filament-wallet::messages.wallets.notification.title'))
-                ->message(trans('filament-wallet::messages.wallets.notification.message'))
+                ->body(trans('filament-wallet::messages.wallets.notification.message'))
                 ->send();
         });
     }
