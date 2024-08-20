@@ -1,5 +1,5 @@
 {
-    "name": "eimkasp/filament-wallet",
+    "name": "tomatophp/filament-wallet",
     "type": "library",
     "description": "Account Balance / Wallets Manager For FilamentPHP and Filament Account Builder",
     "keywords": [
