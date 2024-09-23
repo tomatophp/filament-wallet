@@ -1,0 +1,29 @@
+{
+    "name": "FilamentWallet",
+    "alias": "filament-wallet",
+    "description": {
+        "ar": "Account Balance / Wallets Manager For FilamentPHP and Filament Account Builder",
+        "en": "Account Balance / Wallets Manager For FilamentPHP and Filament Account Builder",
+        "gr": "Account Balance / Wallets Manager For FilamentPHP and Filament Account Builder",
+        "sp": "Account Balance / Wallets Manager For FilamentPHP and Filament Account Builder"
+    },
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "TomatoPHP\\FilamentWallet\\FilamentWalletServiceProvider"
+    ],
+    "files": [],
+    "title": {
+        "ar": "Wallets Manager",
+        "en": "Wallets Manager",
+        "gr": "Wallets Manager",
+        "sp": "Wallets Manager"
+    },
+    "color": "#007dff",
+    "icon": "heroicon-c-wallet",
+    "placeholder": "https://raw.githubusercontent.com/tomatophp/filament-wallet/master/arts/3x1io-tomato-wallet.jpg",
+    "type": "lib",
+    "version": "v1.0.5",
+    "github" : "https://github.com/tomatophp/filament-wallet",
+    "docs" : "https://github.com/tomatophp/filament-wallet"
+}

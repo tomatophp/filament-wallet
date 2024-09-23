@@ -3,7 +3,6 @@
 # Filament Wallet
 
 [![Latest Stable Version](https://poser.pugx.org/tomatophp/filament-wallet/version.svg)](https://packagist.org/packages/tomatophp/filament-wallet)
-[![PHP Version Require](http://poser.pugx.org/tomatophp/filament-wallet/require/php)](https://packagist.org/packages/tomatophp/filament-wallet)
 [![License](https://poser.pugx.org/tomatophp/filament-wallet/license.svg)](https://packagist.org/packages/tomatophp/filament-wallet)
 [![Downloads](https://poser.pugx.org/tomatophp/filament-wallet/d/total.svg)](https://packagist.org/packages/tomatophp/filament-wallet)
 
@@ -105,26 +104,7 @@ finally reigster the plugin on `/app/Providers/Filament/AdminPanelProvider.php`
 ->plugin(\TomatoPHP\FilamentWallet\FilamentWalletPlugin::make()->useAccounts())
 ```
 
-## Support
 
-you can join our discord server to get support [TomatoPHP](https://discord.gg/Xqmt35Uh)
+## Other Filament Packages
 
-## Docs
-
-you can check docs of this package on [Docs](https://docs.tomatophp.com/filament/filament-wallet)
-
-## Changelog
-
-Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
-
-## Security
-
-Please see [SECURITY](SECURITY.md) for more information about security.
-
-## Credits
-
-- [Fady Mondy](https://wa.me/+201207860084)
-
-## License
-
-The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
+Checkout our [Awesome TomatoPHP](https://github.com/tomatophp/awesome)
