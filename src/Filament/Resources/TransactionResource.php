@@ -69,7 +69,7 @@ class TransactionResource extends Resource
                     ->color(fn (Transaction $transaction) => $transaction->type === 'deposit' ? 'success' : 'danger'),
                 Tables\Columns\TextColumn::make('amount')
                     ->label(trans('filament-wallet::messages.transactions.columns.amount'))
-                    ->numeric(2)
+                    ->formatStateUsing(fn (Transaction $transaction) => (int) $transaction->amount / 100)
                     ->badge()
                     ->color(fn (Transaction $transaction) => $transaction->amount > 0 ? 'success' : 'danger')
                     ->sortable(),
