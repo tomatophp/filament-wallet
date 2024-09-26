@@ -77,10 +77,10 @@ class WalletResource extends Resource
                     ->live()
                     ->afterStateUpdated(function($record, $state, Set $set, Get $get){
                         if($get('type') == 'debit'){
-                            $set('balance', $record->balance - $state);
+                            $set('balance', $record->balanceFloatNum - $state);
                         }
                         else {
-                            $set('balance', $record->balance + $state);
+                            $set('balance', $record->balanceFloatNum + $state);
                         }
                     })
             ]);
@@ -102,7 +102,7 @@ class WalletResource extends Resource
                     ->label(trans('filament-wallet::messages.wallets.columns.name'))
                     ->sortable()
                     ->searchable(),
-                Tables\Columns\TextColumn::make('balance')
+                Tables\Columns\TextColumn::make('balanceFloatNum')
                     ->label(trans('filament-wallet::messages.wallets.columns.balance'))
                     ->badge()
                     ->numeric(2)

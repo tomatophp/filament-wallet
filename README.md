@@ -44,11 +44,11 @@ to add a wallet to your user model on your model add this trait
 namespace  App\Models;
 
 use Bavix\Wallet\Interfaces\Wallet;
-use Bavix\Wallet\Traits\HasWallet;
+use Bavix\Wallet\Traits\HasWalletFloat;
 
 class Account extends Model implements Wallet
 {
-    use HasWallet;
+    use HasWalletFloat;
 }
 ```
 
@@ -88,11 +88,11 @@ then you can use this model in your project and attach this traits to your model
 namespace  App\Models;
 
 use Bavix\Wallet\Interfaces\Wallet;
-use Bavix\Wallet\Traits\HasWallet;
+use Bavix\Wallet\Traits\HasWalletFloat;
 
 class Account extends Model implements Wallet
 {
-    use HasWallet;
+    use HasWalletFloat;
 }
 ```
 
