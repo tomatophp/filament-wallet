@@ -24,7 +24,7 @@ class WalletAction extends Action
                     ->label(trans('filament-wallet::messages.wallets.action.current_balance'))
                     ->numeric()
                     ->required()
-                    ->live()
+                    ->lazy()
                     ->default($record->balanceFloatNum),
                 Select::make('type')
                     ->searchable()
@@ -40,7 +40,7 @@ class WalletAction extends Action
                     ->label(trans('filament-wallet::messages.wallets.action.amount'))
                     ->numeric()
                     ->required()
-                    ->live()
+                    ->lazy()
                     ->afterStateUpdated(function ($record, $state, Set $set, Get $get) {
                         if ($get('type') == 'debit') {
                             $set('current_balance', $record->balanceFloatNum - $state);
