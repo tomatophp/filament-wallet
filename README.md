@@ -1,4 +1,4 @@
-![Screenshot](https://raw.githubusercontent.com/tomatophp/filament-wallet/master/arts/3x1io-tomato-wallet.jpg)
+![Screenshot](https://raw.githubusercontent.com/tomatophp/filament-wallet/master/arts/fadymondy-tomato-wallet.jpg)
 
 # Filament Wallet
 
@@ -8,7 +8,7 @@
 
 Account Balance / Wallets Manager For FilamentPHP and Filament Account Builder
 
-you can get more detials about how to use this package in [Bavix Wallet](https://github.com/bavix/laravel-wallet)
+you can get more details about how to use this package in [Bavix Wallet](https://github.com/bavix/laravel-wallet)
 
 # Screenshots
 
@@ -23,13 +23,13 @@ you can get more detials about how to use this package in [Bavix Wallet](https:/
 ```bash
 composer require tomatophp/filament-wallet
 ```
-after install your package please run this command
+after installing your package, please run this command
 
 ```bash
 php artisan filament-wallet:install
 ```
 
-finally reigster the plugin on `/app/Providers/Filament/AdminPanelProvider.php`
+finally register the plugin on `/app/Providers/Filament/AdminPanelProvider.php`
 
 ```php
 ->plugin(\TomatoPHP\FilamentWallet\FilamentWalletPlugin::make())
@@ -52,7 +52,7 @@ class Account extends Model implements Wallet
 }
 ```
 
-now your model is has a wallet on your resource add this action to your table
+now your model is having a wallet on your resource add this action to your table
 
 ```php
 use TomatoPHP\FilamentWallet\Filament\Actions\WalletAction;
@@ -96,14 +96,37 @@ class Account extends Model implements Wallet
 }
 ```
 
-now you accounts has a balance ready.
+now your accounts have a balance ready.
 
-finally reigster the plugin on `/app/Providers/Filament/AdminPanelProvider.php`
+finally, register the plugin on `/app/Providers/Filament/AdminPanelProvider.php`
 
 ```php
 ->plugin(\TomatoPHP\FilamentWallet\FilamentWalletPlugin::make()->useAccounts())
 ```
 
+## Testing
+
+if you like to run `PEST` testing just use this command
+
+```bash
+composer test
+```
+
+## Code Style
+
+if you like to fix the code style just use this command
+
+```bash
+composer format
+```
+
+## PHPStan
+
+if you like to check the code by `PHPStan` just use this command
+
+```bash
+composer analyse
+```
 
 ## Other Filament Packages
 

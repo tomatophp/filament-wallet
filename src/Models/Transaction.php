@@ -2,7 +2,4 @@
 
 namespace TomatoPHP\FilamentWallet\Models;
 
-class Transaction extends \Bavix\Wallet\Models\Transaction
-{
-
-}
+class Transaction extends \Bavix\Wallet\Models\Transaction {}

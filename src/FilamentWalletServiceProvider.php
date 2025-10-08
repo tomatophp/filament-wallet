@@ -2,60 +2,50 @@
 
 namespace TomatoPHP\FilamentWallet;
 
-use Filament\Forms\Components\Select;
-use Filament\Forms\Components\TextInput;
-use Filament\Forms\Get;
-use Filament\Forms\Set;
-use Filament\Notifications\Notification;
-use Filament\Tables\Actions\Action;
 use Illuminate\Support\ServiceProvider;
-use TomatoPHP\FilamentAccounts\Facades\FilamentAccounts;
-use TomatoPHP\FilamentAccounts\Models\Account;
-use TomatoPHP\FilamentWallet\Filament\Actions\WalletAction;
-
 
 class FilamentWalletServiceProvider extends ServiceProvider
 {
     public function register(): void
     {
-        //Register generate command
+        // Register generate command
         $this->commands([
-           \TomatoPHP\FilamentWallet\Console\FilamentWalletInstall::class,
+            \TomatoPHP\FilamentWallet\Console\FilamentWalletInstall::class,
         ]);
 
-        //Register Config file
-        $this->mergeConfigFrom(__DIR__.'/../config/filament-wallet.php', 'filament-wallet');
+        // Register Config file
+        $this->mergeConfigFrom(__DIR__ . '/../config/filament-wallet.php', 'filament-wallet');
 
-        //Publish Config
+        // Publish Config
         $this->publishes([
-           __DIR__.'/../config/filament-wallet.php' => config_path('filament-wallet.php'),
+            __DIR__ . '/../config/filament-wallet.php' => config_path('filament-wallet.php'),
         ], 'filament-wallet-config');
 
-        //Register Migrations
-        $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
+        // Register Migrations
+        $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
 
-        //Publish Migrations
+        // Publish Migrations
         $this->publishes([
-           __DIR__.'/../database/migrations' => database_path('migrations'),
+            __DIR__ . '/../database/migrations' => database_path('migrations'),
         ], 'filament-wallet-migrations');
-        //Register views
-        $this->loadViewsFrom(__DIR__.'/../resources/views', 'filament-wallet');
+        // Register views
+        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'filament-wallet');
 
-        //Publish Views
+        // Publish Views
         $this->publishes([
-           __DIR__.'/../resources/views' => resource_path('views/vendor/filament-wallet'),
+            __DIR__ . '/../resources/views' => resource_path('views/vendor/filament-wallet'),
         ], 'filament-wallet-views');
 
-        //Register Langs
-        $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'filament-wallet');
+        // Register Langs
+        $this->loadTranslationsFrom(__DIR__ . '/../resources/lang', 'filament-wallet');
 
-        //Publish Lang
+        // Publish Lang
         $this->publishes([
-           __DIR__.'/../resources/lang' => base_path('lang/vendor/filament-wallet'),
+            __DIR__ . '/../resources/lang' => base_path('lang/vendor/filament-wallet'),
         ], 'filament-wallet-lang');
 
-        //Register Routes
-        $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
+        // Register Routes
+        $this->loadRoutesFrom(__DIR__ . '/../routes/web.php');
 
     }
 

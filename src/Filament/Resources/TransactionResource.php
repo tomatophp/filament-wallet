@@ -2,25 +2,22 @@
 
 namespace TomatoPHP\FilamentWallet\Filament\Resources;
 
-use TomatoPHP\FilamentWallet\Filament\Resources\TransactionResource\Pages;
-use TomatoPHP\FilamentWallet\Filament\Resources\TransactionResource\RelationManagers;
-use TomatoPHP\FilamentWallet\Models\Transaction;
-use Filament\Forms;
-use Filament\Forms\Form;
+use BackedEnum;
 use Filament\Resources\Resource;
+use Filament\Schemas\Schema;
 use Filament\Tables;
+use Filament\Actions;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
+use TomatoPHP\FilamentWallet\Filament\Resources\TransactionResource\Pages;
+use TomatoPHP\FilamentWallet\Models\Transaction;
 
 class TransactionResource extends Resource
 {
     protected static ?string $model = Transaction::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-banknotes';
+    protected static BackedEnum | string | null $navigationIcon = 'heroicon-o-banknotes';
 
     protected static ?int $navigationSort = 3;
-
 
     public static function getNavigationGroup(): ?string
     {
@@ -42,7 +39,7 @@ class TransactionResource extends Resource
         return trans('filament-wallet::messages.transactions.single');
     }
 
-    public static function form(Form $form): Form
+    public static function form(Schema $form): Schema
     {
         return $form;
     }
@@ -86,14 +83,14 @@ class TransactionResource extends Resource
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters(filament('filament-wallet')->useAccounts ? [
-               Tables\Filters\SelectFilter::make('payable_id')
-                   ->label(trans('filament-wallet::messages.transactions.filters.accounts'))
+                Tables\Filters\SelectFilter::make('payable_id')
+                    ->label(trans('filament-wallet::messages.transactions.filters.accounts'))
                     ->searchable()
-                    ->options(fn () => config('filament-accounts.model')::query()->pluck('name', 'id')->toArray())
+                    ->options(fn () => config('filament-accounts.model')::query()->pluck('name', 'id')->toArray()),
             ] : [])
-            ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
+            ->toolbarActions([
+                Actions\BulkActionGroup::make([
+                    Actions\DeleteBulkAction::make(),
                 ]),
             ]);
     }

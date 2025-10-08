@@ -2,12 +2,12 @@
 
 namespace TomatoPHP\FilamentWallet\Filament\Actions;
 
+use Filament\Actions\Action;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
-use Filament\Forms\Get;
-use Filament\Forms\Set;
 use Filament\Notifications\Notification;
-use Filament\Tables\Actions\Action;
+use Filament\Schemas\Components\Utilities\Get;
+use Filament\Schemas\Components\Utilities\Set;
 
 class WalletAction extends Action
 {
@@ -17,7 +17,7 @@ class WalletAction extends Action
         $this->icon('heroicon-s-wallet');
         $this->tooltip(trans('filament-wallet::messages.wallets.action.title'));
         $this->label(trans('filament-wallet::messages.wallets.action.title'));
-        $this->form(function ($record){
+        $this->schema(function ($record) {
             return [
                 TextInput::make('current_balance')
                     ->disabled()
@@ -31,7 +31,7 @@ class WalletAction extends Action
                     ->default('credit')
                     ->options([
                         'credit' => trans('filament-wallet::messages.wallets.action.credit'),
-                        'debit' => trans('filament-wallet::messages.wallets.action.debit')
+                        'debit' => trans('filament-wallet::messages.wallets.action.debit'),
                     ])
                     ->label(trans('filament-wallet::messages.wallets.action.type'))
                     ->required()
@@ -41,27 +41,26 @@ class WalletAction extends Action
                     ->numeric()
                     ->required()
                     ->live()
-                    ->afterStateUpdated(function($record, $state, Set $set, Get $get){
-                        if($get('type') == 'debit'){
+                    ->afterStateUpdated(function ($record, $state, Set $set, Get $get) {
+                        if ($get('type') == 'debit') {
                             $set('current_balance', $record->balanceFloatNum - $state);
-                        }
-                        else {
+                        } else {
                             $set('current_balance', $record->balanceFloatNum + $state);
                         }
-                    })
+                    }),
             ];
         });
-        $this->action(function($record,array $data){
-            if($data['type'] == 'debit'){
+        $this->action(function ($record, array $data) {
+            if ($data['type'] == 'debit') {
                 $record->withdrawFloat($data['amount']);
-            }
-            else {
+            } else {
                 $record->depositFloat($data['amount']);
             }
 
             Notification::make()
                 ->title(trans('filament-wallet::messages.wallets.notification.title'))
                 ->body(trans('filament-wallet::messages.wallets.notification.message'))
+                ->success()
                 ->send();
         });
     }

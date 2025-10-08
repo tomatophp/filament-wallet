@@ -28,7 +28,6 @@ class FilamentWalletInstall extends Command
         parent::__construct();
     }
 
-
     /**
      * Execute the console command.
      *
@@ -37,8 +36,8 @@ class FilamentWalletInstall extends Command
     public function handle()
     {
         $this->info('Publish Vendor Assets');
-        $this->artisanCommand(["migrate"]);
-        $this->artisanCommand(["optimize:clear"]);
+        $this->artisanCommand(['migrate']);
+        $this->artisanCommand(['optimize:clear']);
         $this->info('Filament Wallet installed successfully.');
     }
 }
