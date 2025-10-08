@@ -5,6 +5,9 @@
 [![Latest Stable Version](https://poser.pugx.org/tomatophp/filament-wallet/version.svg)](https://packagist.org/packages/tomatophp/filament-wallet)
 [![License](https://poser.pugx.org/tomatophp/filament-wallet/license.svg)](https://packagist.org/packages/tomatophp/filament-wallet)
 [![Downloads](https://poser.pugx.org/tomatophp/filament-wallet/d/total.svg)](https://packagist.org/packages/tomatophp/filament-wallet)
+[![Dependabot Updates](https://github.com/tomatophp/filament-wallet/actions/workflows/dependabot/dependabot-updates/badge.svg)](https://github.com/tomatophp/filament-wallet/actions/workflows/dependabot/dependabot-updates)
+[![PHP Code Styling](https://github.com/tomatophp/filament-wallet/actions/workflows/fix-php-code-styling.yml/badge.svg)](https://github.com/tomatophp/filament-wallet/actions/workflows/fix-php-code-styling.yml)
+[![Tests](https://github.com/tomatophp/filament-wallet/actions/workflows/tests.yml/badge.svg)](https://github.com/tomatophp/filament-wallet/actions/workflows/tests.yml)
 
 Account Balance / Wallets Manager For FilamentPHP and Filament Account Builder
 
