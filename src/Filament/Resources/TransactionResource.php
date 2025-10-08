@@ -3,10 +3,10 @@
 namespace TomatoPHP\FilamentWallet\Filament\Resources;
 
 use BackedEnum;
+use Filament\Actions;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Tables;
-use Filament\Actions;
 use Filament\Tables\Table;
 use TomatoPHP\FilamentWallet\Filament\Resources\TransactionResource\Pages;
 use TomatoPHP\FilamentWallet\Models\Transaction;

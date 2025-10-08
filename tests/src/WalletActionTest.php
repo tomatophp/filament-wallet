@@ -4,7 +4,6 @@ namespace TomatoPHP\FilamentWallet\Tests;
 
 use Filament\Facades\Filament;
 use Illuminate\Config\Repository;
-use TomatoPHP\FilamentWallet\Filament\Actions\WalletAction;
 use TomatoPHP\FilamentWallet\Filament\Resources\WalletResource\Pages;
 use TomatoPHP\FilamentWallet\FilamentWalletPlugin;
 use TomatoPHP\FilamentWallet\Tests\Models\User;

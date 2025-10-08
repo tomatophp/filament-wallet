@@ -15,8 +15,8 @@ use TomatoPHP\FilamentWallet\Tests\Database\Factories\UserFactory;
 class User extends Authenticatable implements FilamentUser, MustVerifyEmail, Wallet
 {
     use HasFactory;
-    use Notifiable;
     use HasWalletFloat;
+    use Notifiable;
 
     protected $fillable = [
         'name',

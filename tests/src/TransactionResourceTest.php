@@ -10,7 +10,6 @@ use TomatoPHP\FilamentWallet\FilamentWalletPlugin;
 use TomatoPHP\FilamentWallet\Tests\Models\User;
 
 use function Pest\Laravel\actingAs;
-use function Pest\Laravel\get;
 use function Pest\Livewire\livewire;
 
 beforeEach(function () {

@@ -43,8 +43,8 @@ return [
             'accounts' => 'Filter By Accounts',
         ],
         'notification' => [
-            "title" => "Wallet Balance",
-            "message" => "Wallet Balance Updated Successfully",
-        ]
+            'title' => 'Wallet Balance',
+            'message' => 'Wallet Balance Updated Successfully',
+        ],
     ],
 ];
