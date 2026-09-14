@@ -6,9 +6,9 @@ use BackedEnum;
 use Filament\Actions;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
-use Filament\Forms\Get;
-use Filament\Forms\Set;
 use Filament\Resources\Resource;
+use Filament\Schemas\Components\Utilities\Get;
+use Filament\Schemas\Components\Utilities\Set;
 use Filament\Schemas\Schema;
 use Filament\Tables;
 use Filament\Tables\Table;
@@ -46,7 +46,7 @@ class WalletResource extends Resource
 
     public static function form(Schema $form): Schema
     {
-        return $form->schema([
+        return $form->components([
             TextInput::make('balance')
                 ->columnSpan(2)
                 ->disabled()
@@ -71,11 +71,13 @@ class WalletResource extends Resource
                 ->numeric()
                 ->required()
                 ->live()
-                ->afterStateUpdated(function ($record, $state, Set $set, Get $get) {
+                ->afterStateUpdated(function (?Wallet $record, mixed $state, Set $set, Get $get): void {
+                    $balance = $record?->balanceFloatNum ?? 0;
+
                     if ($get('type') == 'debit') {
-                        $set('balance', $record->balanceFloatNum - $state);
+                        $set('balance', $balance - $state);
                     } else {
-                        $set('balance', $record->balanceFloatNum + $state);
+                        $set('balance', $balance + $state);
                     }
                 }),
         ]);

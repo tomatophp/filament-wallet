@@ -4,7 +4,6 @@ namespace TomatoPHP\FilamentWallet;
 
 use Filament\Contracts\Plugin;
 use Filament\Panel;
-use TomatoPHP\FilamentAccounts\Filament\Resources\AccountResource\Table\AccountActions;
 use TomatoPHP\FilamentWallet\Filament\Actions\WalletAction;
 use TomatoPHP\FilamentWallet\Filament\Resources\TransactionResource;
 use TomatoPHP\FilamentWallet\Filament\Resources\WalletResource;
@@ -50,10 +49,15 @@ class FilamentWalletPlugin implements Plugin
 
     public function boot(Panel $panel): void
     {
-        if ($this->useAccounts) {
-            AccountActions::register(WalletAction::make('wallet'));
+        // tomatophp/filament-accounts is optional; only hook into it when it is installed.
+        $accountActions = 'TomatoPHP\\FilamentAccounts\\Filament\\Resources\\AccountResource\\Table\\AccountActions';
+
+        if ($this->useAccounts && class_exists($accountActions)) {
+            $accountActions::register(WalletAction::make('wallet'));
         }
     }
+
+    final public function __construct() {}
 
     public static function make(): static
     {

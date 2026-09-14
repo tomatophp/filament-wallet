@@ -2,6 +2,7 @@
 
 namespace TomatoPHP\FilamentWallet\Tests;
 
+use Bavix\Wallet\WalletServiceProvider;
 use BladeUI\Heroicons\BladeHeroiconsServiceProvider;
 use BladeUI\Icons\BladeIconsServiceProvider;
 use Filament\Actions\ActionsServiceProvider;
@@ -35,7 +36,7 @@ abstract class TestCase extends BaseTestCase
     protected function getPackageProviders($app): array
     {
         $providers = [
-            \Bavix\Wallet\WalletServiceProvider::class,
+            WalletServiceProvider::class,
             ActionsServiceProvider::class,
             BladeCaptureDirectiveServiceProvider::class,
             BladeHeroiconsServiceProvider::class,

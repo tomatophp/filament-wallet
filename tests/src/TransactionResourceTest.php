@@ -2,6 +2,7 @@
 
 namespace TomatoPHP\FilamentWallet\Tests;
 
+use BackedEnum;
 use Filament\Facades\Filament;
 use Illuminate\Config\Repository;
 use TomatoPHP\FilamentWallet\Filament\Resources\TransactionResource;
@@ -70,7 +71,9 @@ it('displays deposit transaction with correct type', function () {
     $transaction = $user->wallet->transactions()->first();
 
     livewire(Pages\ListTransactions::class)
-        ->assertTableColumnStateSet('type', 'deposit', $transaction);
+        ->assertTableColumnStateSet('type', $transaction->type, $transaction);
+
+    expect($transaction->type instanceof BackedEnum ? $transaction->type->value : $transaction->type)->toBe('deposit');
 });
 
 it('displays withdraw transaction with correct type', function () {
@@ -81,7 +84,9 @@ it('displays withdraw transaction with correct type', function () {
     $transaction = $user->wallet->transactions()->where('type', 'withdraw')->first();
 
     livewire(Pages\ListTransactions::class)
-        ->assertTableColumnStateSet('type', 'withdraw', $transaction);
+        ->assertTableColumnStateSet('type', $transaction->type, $transaction);
+
+    expect($transaction->type instanceof BackedEnum ? $transaction->type->value : $transaction->type)->toBe('withdraw');
 });
 
 it('displays correct transaction amount', function () {

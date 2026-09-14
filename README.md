@@ -15,11 +15,21 @@ you can get more details about how to use this package in [Bavix Wallet](https:/
 
 # Screenshots
 
-![Account Wallet](https://raw.githubusercontent.com/tomatophp/filament-wallet/master/arts/account-wallet.png)
-![Charge A Wallet](https://raw.githubusercontent.com/tomatophp/filament-wallet/master/arts/charge-wallet.png)
-![Wallets List](https://raw.githubusercontent.com/tomatophp/filament-wallet/master/arts/wallet.png)
-![Transactions List](https://raw.githubusercontent.com/tomatophp/filament-wallet/master/arts/transactions.png)
+![Wallets List](https://raw.githubusercontent.com/tomatophp/filament-wallet/master/arts/wallets-light.png)
+![Wallets List Dark](https://raw.githubusercontent.com/tomatophp/filament-wallet/master/arts/wallets-dark.png)
+![Charge A Wallet](https://raw.githubusercontent.com/tomatophp/filament-wallet/master/arts/charge-wallet-light.png)
+![Charge A Wallet Dark](https://raw.githubusercontent.com/tomatophp/filament-wallet/master/arts/charge-wallet-dark.png)
+![Transactions List](https://raw.githubusercontent.com/tomatophp/filament-wallet/master/arts/transactions-light.png)
+![Transactions List Dark](https://raw.githubusercontent.com/tomatophp/filament-wallet/master/arts/transactions-dark.png)
 
+
+## Compatibility
+
+| Package | Filament | Laravel | PHP |
+|---------|----------|---------|-----|
+| 5.x | 5.x | 12.x / 13.x | 8.3+ |
+| 4.x | 4.x | 11.x / 12.x | 8.2+ |
+| 1.x | 3.x | 10.x / 11.x | 8.1+ |
 
 ## Installation
 
@@ -60,9 +70,9 @@ now your model is having a wallet on your resource add this action to your table
 ```php
 use TomatoPHP\FilamentWallet\Filament\Actions\WalletAction;
 
-public function table(Table $table): void
+public static function table(Table $table): Table
 {
-    $table->actions([
+    return $table->recordActions([
         WalletAction::make('wallet'),
     ]);
 }

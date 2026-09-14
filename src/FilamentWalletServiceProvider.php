@@ -3,6 +3,7 @@
 namespace TomatoPHP\FilamentWallet;
 
 use Illuminate\Support\ServiceProvider;
+use TomatoPHP\FilamentWallet\Console\FilamentWalletInstall;
 
 class FilamentWalletServiceProvider extends ServiceProvider
 {
@@ -10,7 +11,7 @@ class FilamentWalletServiceProvider extends ServiceProvider
     {
         // Register generate command
         $this->commands([
-            \TomatoPHP\FilamentWallet\Console\FilamentWalletInstall::class,
+            FilamentWalletInstall::class,
         ]);
 
         // Register Config file

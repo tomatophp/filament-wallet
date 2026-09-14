@@ -63,7 +63,8 @@ class TransactionResource extends Resource
                 Tables\Columns\TextColumn::make('type')
                     ->label(trans('filament-wallet::messages.transactions.columns.type'))
                     ->badge()
-                    ->color(fn (Transaction $transaction) => $transaction->type === 'deposit' ? 'success' : 'danger'),
+                    // bavix/laravel-wallet 12 casts `type` to a TransactionType enum; 11 keeps a plain string.
+                    ->color(fn (Transaction $transaction) => ($transaction->type instanceof BackedEnum ? $transaction->type->value : $transaction->type) === 'deposit' ? 'success' : 'danger'),
                 Tables\Columns\TextColumn::make('amount')
                     ->label(trans('filament-wallet::messages.transactions.columns.amount'))
                     ->formatStateUsing(fn (Transaction $transaction) => (int) $transaction->amount / 100)

@@ -1,6 +1,6 @@
 <?php
 
-namespace Tomatophp\FilamentWallet\Console;
+namespace TomatoPHP\FilamentWallet\Console;
 
 use Illuminate\Console\Command;
 use TomatoPHP\ConsoleHelpers\Traits\RunCommand;
@@ -30,10 +30,8 @@ class FilamentWalletInstall extends Command
 
     /**
      * Execute the console command.
-     *
-     * @return mixed
      */
-    public function handle()
+    public function handle(): void
     {
         $this->info('Publish Vendor Assets');
         $this->artisanCommand(['migrate']);

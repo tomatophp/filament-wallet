@@ -8,6 +8,7 @@ use Filament\Forms\Components\TextInput;
 use Filament\Notifications\Notification;
 use Filament\Schemas\Components\Utilities\Get;
 use Filament\Schemas\Components\Utilities\Set;
+use Illuminate\Database\Eloquent\Model;
 
 class WalletAction extends Action
 {
@@ -17,7 +18,7 @@ class WalletAction extends Action
         $this->icon('heroicon-s-wallet');
         $this->tooltip(trans('filament-wallet::messages.wallets.action.title'));
         $this->label(trans('filament-wallet::messages.wallets.action.title'));
-        $this->schema(function ($record) {
+        $this->schema(function (Model $record): array {
             return [
                 TextInput::make('current_balance')
                     ->disabled()
@@ -41,7 +42,7 @@ class WalletAction extends Action
                     ->numeric()
                     ->required()
                     ->lazy()
-                    ->afterStateUpdated(function ($record, $state, Set $set, Get $get) {
+                    ->afterStateUpdated(function (Model $record, mixed $state, Set $set, Get $get): void {
                         if ($get('type') == 'debit') {
                             $set('current_balance', $record->balanceFloatNum - $state);
                         } else {
@@ -50,7 +51,7 @@ class WalletAction extends Action
                     }),
             ];
         });
-        $this->action(function ($record, array $data) {
+        $this->action(function (Model $record, array $data): void {
             if ($data['type'] == 'debit') {
                 $record->withdrawFloat($data['amount']);
             } else {
