@@ -2,6 +2,12 @@
     "name": "tomatophp/filament-wallet",
     "type": "library",
     "description": "Account Balance / Wallets Manager For FilamentPHP and Filament Account Builder",
+    "homepage": "https://tomatophp.com/en/plugins/filament-wallet",
+    "support": {
+        "issues": "https://github.com/tomatophp/filament-wallet/issues",
+        "source": "https://github.com/tomatophp/filament-wallet",
+        "docs": "https://tomatophp.com/en/plugins/filament-wallet"
+    },
     "keywords": [
         "php",
         "laravel",
